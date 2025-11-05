@@ -21,9 +21,9 @@ jobs:
 
     - name: Install dependencies
       run: |
-        py -m pip install --upgrade pip
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
     - name: Verify installation
       run: |
-        py -c "import sys; print(sys.executable)"
+        python -c "import sys; print(sys.executable)"
