@@ -1,0 +1,29 @@
+name: Python CI
+
+on:
+  push:
+    branches:
+      - setup-task
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13.5'
+
+    - name: Install dependencies
+      run: |
+        py -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Verify installation
+      run: |
+        py -c "import sys; print(sys.executable)"
